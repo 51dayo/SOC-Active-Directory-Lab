@@ -64,8 +64,7 @@ All machines can communicate with each other within the subnet.
 
 ## 🗺️ Network Diagram
 
-> 📸 *Screenshot: Add your network topology diagram here*
-
+![NetworkDiagram](assets/images/Network-Diagram.png)
 ```
 192.168.10.0/24 — VMware NAT/Host-Only Network
 
@@ -83,8 +82,6 @@ All machines can communicate with each other within the subnet.
 │   Domain: ben.local        Domain: ben.local        │
 └─────────────────────────────────────────────────────┘
 ```
-
-![Hydra Brute Force Attack](assets/images/hydra-bruteforce.png)
 ---
 
 ## 🛠️ Tools & Technologies
@@ -150,8 +147,7 @@ index = endpoint
 disabled = false
 ```
 
-> 📸 *Screenshot: `assets/images/inputs-conf-client.png` — inputs.conf configuration on Windows client*
-
+![inputs conf file](assets/images/inputs-conf.png)
 ---
 
 ### 3. Windows Server – Active Directory & DC
@@ -170,14 +166,13 @@ The Windows Server (`192.168.10.5`) was configured as a **Domain Controller** fo
 6. Configured **Splunk Universal Forwarder** with the same `inputs.conf` endpoints as the client
 7. Joined the Windows client (`192.168.10.3`) to the `ben.local` domain
 
-> 📸 *Screenshot: `assets/images/ad-setup.png` — Active Directory Users and Computers showing OUs*
+![ad setp](assets/images/ad-setup.PNG)
 
-> 📸 *Screenshot: `assets/images/ou-users.png` — IT and HR OUs with user accounts*
+![OU Users](assets/images/ou-users.PNG)
 
 After domain join, Splunk was already receiving logs from **two hosts**:
 
-> 📸 *Screenshot: `assets/images/splunk-two-hosts.png` — Splunk showing both hosts forwarding logs*
-
+![splunk host](assets/images/splunk-hosts.PNG)
 ---
 
 ### 4. Kali Linux – Attacker Machine
@@ -205,8 +200,7 @@ The Kali machine (`192.168.10.200`) was used to simulate attacks against the Act
 hydra -l <username> -P /usr/share/wordlists/rockyou.txt rdp://192.168.10.3
 ```
 
-> 📸 *Screenshot: `assets/images/hydra-bruteforce.png` — Hydra running the brute force attack*
-
+![hydra bruteforce](assets/images/hydra-bruteforce.PNG)
 **Result:** The attack was **successful** — valid credentials were found.
 
 > 📸 *Screenshot: `assets/images/hydra-success.png` — Hydra output showing successful login*
@@ -215,8 +209,7 @@ hydra -l <username> -P /usr/share/wordlists/rockyou.txt rdp://192.168.10.3
 
 The brute force activity generated a high volume of **Event ID 4625** (failed logon attempts) followed by **Event ID 4624** (successful logon) in the Security event log, visible in the `endpoint` index.
 
-> 📸 *Screenshot: `assets/images/splunk-bruteforce-logs.png` — Splunk showing burst of failed logon events from the brute force*
-
+![splunk bruteforce logs](assets/images/splunk-bruteforce-logs.PNG)
 ---
 
 ### 🧪 Atomic Red Team – T1136.001 Local Account Creation
@@ -232,7 +225,7 @@ This technique simulates an attacker creating a local user account on the compro
 Invoke-AtomicTest T1136.001
 ```
 
-> 📸 *Screenshot: `assets/images/art-T1136-001.png` — Atomic Red Team executing T1136.001*
+![art t1136.001](assets/images/art-T1136-001.PNG)
 
 **Result:** A new local user account was successfully created on the Windows client.
 
@@ -240,8 +233,7 @@ Invoke-AtomicTest T1136.001
 
 The account creation generated **Event ID 4720** (user account was created), which was captured by Sysmon and forwarded to Splunk.
 
-> 📸 *Screenshot: `assets/images/splunk-T1136-001.png` — Splunk logs confirming new local account creation*
-
+![art t1136.001](assets/images/splunk-T1136-001.PNG)
 ---
 
 ### 🧪 Atomic Red Team – T1059.001 PowerShell Execution
@@ -257,7 +249,7 @@ This technique simulates an attacker using PowerShell to execute commands or scr
 Invoke-AtomicTest T1059.001
 ```
 
-> 📸 *Screenshot: `assets/images/art-T1059-001.png` — Atomic Red Team executing T1059.001*
+![art t1059.001](assets/images/art-T1059-001.png)
 
 **Result:** PowerShell execution activity was generated as expected.
 
@@ -265,7 +257,7 @@ Invoke-AtomicTest T1059.001
 
 Sysmon captured the PowerShell activity (**Event ID 1 – Process Create** and PowerShell script block logging events), which appeared in Splunk under the `endpoint` index.
 
-> 📸 *Screenshot: `assets/images/splunk-T1059-001.png` — Splunk logs showing PowerShell execution telemetry*
+![art t1059.001](assets/images/splunk-T1059-001.png)
 
 ---
 
@@ -280,8 +272,7 @@ All attack activities were successfully detected in Splunk. Below is a summary o
 | Local Account Creation (T1136.001) | 4720 | Windows Security Log | endpoint |
 | PowerShell Execution (T1059.001) | Event ID 1 | Sysmon | endpoint |
 
-> 📸 *Screenshot: `assets/images/splunk-summary.png` — Splunk search showing events across all attack scenarios*
-
+![splunk summary](assets/images/splunk-summary.png)
 **Sample Splunk SPL query to detect brute force:**
 
 ```spl
