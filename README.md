@@ -84,8 +84,7 @@ All machines can communicate with each other within the subnet.
 └─────────────────────────────────────────────────────┘
 ```
 
-> 📸 *Screenshot: `assets/images/network-diagram.png`*
-
+![Hydra Brute Force Attack](assets/images/hydra-bruteforce.png)
 ---
 
 ## 🛠️ Tools & Technologies
