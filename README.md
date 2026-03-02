@@ -319,15 +319,11 @@ index=endpoint EventCode=4720
 - [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 - [Hydra – THC](https://github.com/vanhauser-thc/thc-hydra)
-- [Active Directory Documentation – Microsoft](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/)
+- [Active Directory Documentation – Microsoft]([https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview))
 
 ---
 
 ## 👤 Author
-
-**Ben**  
-Cybersecurity Enthusiast | SOC Analyst in Training  
-> *"Building labs, breaking things, and learning how defenders think."*
 
 ---
 
