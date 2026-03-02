@@ -112,7 +112,7 @@ Splunk Enterprise was installed on the Ubuntu server to serve as the central log
 - Created an index named `endpoint` for storing Windows telemetry
 - Accessible via web interface on port `8000`
 
-> 📸 *Screenshot: `assets/images/splunk-dashboard.png` — Splunk web interface showing the endpoint index*
+> 📸 *Screenshot: ![Splunk Dashboard](assets/images/splunk-dashboard.PNG)
 
 **Key Splunk configuration:**
 - Index created: `endpoint`
