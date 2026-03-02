@@ -201,9 +201,6 @@ hydra -l <username> -P /usr/share/wordlists/rockyou.txt rdp://192.168.10.3
 ```
 
 ![hydra bruteforce](assets/images/hydra-bruteforce.PNG)
-**Result:** The attack was **successful** — valid credentials were found.
-
-> 📸 *Screenshot: `assets/images/hydra-success.png` — Hydra output showing successful login*
 
 **Detection in Splunk:**
 
