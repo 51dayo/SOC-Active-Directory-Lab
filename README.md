@@ -147,7 +147,7 @@ index = endpoint
 disabled = false
 ```
 
-![inputs conf file](assets/images/inputs-conf.png)
+![inputs conf file](assets/images/inputs-conf.PNG)
 ---
 
 ### 3. Windows Server – Active Directory & DC
@@ -249,7 +249,7 @@ This technique simulates an attacker using PowerShell to execute commands or scr
 Invoke-AtomicTest T1059.001
 ```
 
-![art t1059.001](assets/images/art-T1059-001.png)
+![art t1059.001](assets/images/art-T1059-001.PNG)
 
 **Result:** PowerShell execution activity was generated as expected.
 
@@ -257,7 +257,7 @@ Invoke-AtomicTest T1059.001
 
 Sysmon captured the PowerShell activity (**Event ID 1 – Process Create** and PowerShell script block logging events), which appeared in Splunk under the `endpoint` index.
 
-![art t1059.001](assets/images/splunk-T1059-001.png)
+![art t1059.001](assets/images/splunk-T1059-001.PNG)
 
 ---
 
@@ -272,7 +272,6 @@ All attack activities were successfully detected in Splunk. Below is a summary o
 | Local Account Creation (T1136.001) | 4720 | Windows Security Log | endpoint |
 | PowerShell Execution (T1059.001) | Event ID 1 | Sysmon | endpoint |
 
-![splunk summary](assets/images/splunk-summary.png)
 **Sample Splunk SPL query to detect brute force:**
 
 ```spl
